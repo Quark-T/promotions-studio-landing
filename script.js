@@ -1,5 +1,7 @@
 // Scroll reveal functionality
 document.addEventListener('DOMContentLoaded', () => {
+    const analytics = window.promotionsAnalytics;
+
     // Reveal elements on scroll
     const reveals = document.querySelectorAll('.shot-card, .feature-row, .problem-card, .comparison-card, .pricing-card');
     
@@ -24,18 +26,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Trigger once on load
     revealOnScroll();
 
-    // Event Tracking for Analytics (Mockup)
-    const ctaButtons = document.querySelectorAll('.btn-primary');
-    ctaButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            // GA4 or Meta Pixel tracking would go here
-            console.log('CTA Clicked:', e.target.textContent);
-            // We allow the default link behavior to navigate
+    const trackedLinks = document.querySelectorAll('a[data-track]');
+    trackedLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            const label = link.dataset.track || link.textContent.trim();
+            analytics?.trackEvent('cta_click', {
+                cta_label: label,
+                destination_url: link.href,
+                link_text: link.textContent.trim()
+            });
+
+            if (link.dataset.conversion === 'install') {
+                analytics?.sendConversion(
+                    analytics?.getConfig?.().googleAdsConversionLabel,
+                    link.href
+                );
+            }
         });
     });
 
     // Scroll depth tracking
-    let scrollDepths = { 25: false, 50: false, 75: false, 100: false };
+    const scrollDepths = { 25: false, 50: false, 75: false, 100: false };
     
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
@@ -46,7 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         [25, 50, 75, 100].forEach(depth => {
             if (scrollPercent >= depth && !scrollDepths[depth]) {
                 scrollDepths[depth] = true;
-                console.log(`Scroll Depth Reached: ${depth}%`);
+                analytics?.trackEvent('scroll_depth', {
+                    depth_percent: depth
+                });
             }
         });
     });
@@ -54,9 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // FAQ tracking
     const faqs = document.querySelectorAll('details');
     faqs.forEach(faq => {
-        faq.addEventListener('toggle', (e) => {
+        faq.addEventListener('toggle', () => {
             if(faq.open) {
-                console.log('FAQ Opened:', faq.querySelector('summary').textContent);
+                analytics?.trackEvent('faq_open', {
+                    faq_question: faq.querySelector('summary')?.textContent?.trim() || ''
+                });
             }
         });
     });
