@@ -1,5 +1,5 @@
 window.TRACKING_CONFIG = {
-    siteUrl: "",
+    siteUrl: "https://promotions-studio-landing.quarkteam00.workers.dev",
     ga4MeasurementId: "",
     googleAdsId: "",
     googleAdsConversionLabel: "",

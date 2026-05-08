@@ -34,6 +34,16 @@ Edit `tracking-config.js` and fill the values you need:
 - `gtmId`: optional Google Tag Manager container, for example `GTM-XXXXXXX`
 - `debug`: set to `true` if you want browser console logs while testing
 
+By default the project currently points to:
+
+- `https://promotions-studio-landing.quarkteam00.workers.dev`
+
+If you connect a custom Cloudflare domain, update:
+
+- `tracking-config.js`
+- `robots.txt`
+- `sitemap.xml`
+
 The landing already supports:
 
 - CTA click tracking

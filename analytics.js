@@ -47,14 +47,18 @@
         return path === "/index.html" ? "/" : path;
     }
 
-    function getPageUrl() {
+    function getCanonicalUrl() {
         const baseUrl = normalizeBaseUrl(config.siteUrl);
         const path = getCurrentPath();
-        return baseUrl ? `${baseUrl}${path}` : window.location.href;
+        return baseUrl ? `${baseUrl}${path}` : `${window.location.origin}${path}`;
+    }
+
+    function getAnalyticsPageLocation() {
+        return `${window.location.origin}${window.location.pathname}${window.location.search}`;
     }
 
     function updateSeoUrls() {
-        const canonicalHref = getPageUrl();
+        const canonicalHref = getCanonicalUrl();
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href", canonicalHref);
 
@@ -82,7 +86,7 @@
         gtagIds.forEach((id) => {
             gtag("config", id, {
                 page_title: document.title,
-                page_location: getPageUrl(),
+                page_location: getAnalyticsPageLocation(),
                 send_page_view: id !== config.ga4MeasurementId
             });
         });
@@ -90,7 +94,7 @@
         if (config.ga4MeasurementId) {
             gtag("event", "page_view", {
                 page_title: document.title,
-                page_location: getPageUrl(),
+                page_location: getAnalyticsPageLocation(),
                 language: document.documentElement.lang || ""
             });
         }
@@ -130,7 +134,7 @@
         const eventParams = Object.assign(
             {
                 page_language: document.body.dataset.pageLanguage || document.documentElement.lang || "",
-                page_location: getPageUrl()
+                page_location: getAnalyticsPageLocation()
             },
             params || {}
         );
