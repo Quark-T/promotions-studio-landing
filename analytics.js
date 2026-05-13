@@ -1,5 +1,6 @@
 (function () {
     const config = window.TRACKING_CONFIG || {};
+    const ga4Bootstrapped = window.__PROMOTIONS_GA4_BOOTSTRAPPED__ === config.ga4MeasurementId;
     const trackedQueryParams = [
         "utm_source",
         "utm_medium",
@@ -79,11 +80,18 @@
     }
 
     function setupGtag() {
-        if (gtagIds.length === 0) return;
-        injectScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gtagIds[0])}`);
-        gtag("js", new Date());
+        if (gtagIds.length === 0 && !window.gtag) return;
+        const existingGtagScript = document.querySelector('script[src^="https://www.googletagmanager.com/gtag/js?id="]');
+        if (!existingGtagScript && gtagIds.length > 0) {
+            injectScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gtagIds[0])}`);
+        }
+
+        if (!ga4Bootstrapped) {
+            gtag("js", new Date());
+        }
 
         gtagIds.forEach((id) => {
+            if (ga4Bootstrapped && id === config.ga4MeasurementId) return;
             gtag("config", id, {
                 page_title: document.title,
                 page_location: getAnalyticsPageLocation(),
@@ -91,7 +99,7 @@
             });
         });
 
-        if (config.ga4MeasurementId) {
+        if (config.ga4MeasurementId && !ga4Bootstrapped) {
             gtag("event", "page_view", {
                 page_title: document.title,
                 page_location: getAnalyticsPageLocation(),
