@@ -1,0 +1,13 @@
+[app sconti shopify]
+"shopify sconti programmati"
+[sconti programmati shopify]
+[app prezzi scontati shopify]
+[badge prodotto shopify]
+"badge sconto shopify"
+"app badge prodotto shopify"
+"badge promozioni shopify"
+"etichette prodotto shopify"
+"etichette sconto shopify"
+[feedback prodotto shopify]
+"widget feedback prodotto shopify"
+"social proof shopify"

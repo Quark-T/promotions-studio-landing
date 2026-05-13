@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Promotions Studio app icon">
+  <defs>
+    <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="1 0 0 0 0.98
+                0 1 0 0 0.60
+                0 0 1 0 0.05
+                0 0 0 1 0"
+      />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#171717" />
+      <stop offset="100%" stop-color="#070707" />
+    </linearGradient>
+  </defs>
+
+  <rect x="34" y="34" width="444" height="444" rx="86" fill="#161312" />
+  <rect x="38" y="38" width="436" height="436" rx="82" fill="url(#panel)" stroke="#ff9800" stroke-width="8" filter="url(#glow-orange)" />
+
+  <g fill="none" stroke="#ffa000" stroke-width="34" filter="url(#glow-soft)">
+    <circle cx="182" cy="182" r="66" />
+    <circle cx="338" cy="330" r="66" />
+  </g>
+
+  <path
+    d="M333 96 227 212h66l-80 205 108-121h-61l64-95h-54z"
+    fill="#ffffff"
+  />
+</svg>

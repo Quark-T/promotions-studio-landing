@@ -1,0 +1,15 @@
+[shopify scheduled discounts]
+"shopify scheduled discounts"
+[shopify discount app]
+"shopify promotional discounts"
+[shopify compare at price app]
+[shopify product badges]
+"shopify discount badges"
+"shopify product badge app"
+"shopify sale badges"
+[shopify discount labels]
+"shopify sale labels"
+[shopify product feedback app]
+"shopify product feedback widget"
+"shopify social proof app"
+"shopify customer feedback widget"

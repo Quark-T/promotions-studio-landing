@@ -2,6 +2,9 @@ landing-check.png
 landing-check-it.png
 landing-check-en.png
 landing-check-it-ads.png
+google-ads-campaign-config.json
+google-ads-service-account.json
+secrets/
 
 # wrangler files
 .wrangler

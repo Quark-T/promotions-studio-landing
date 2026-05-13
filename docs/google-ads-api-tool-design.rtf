@@ -1,0 +1,57 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Arial;}}
+\f0\fs24
+\b Google Ads API Tool Design Document\b0\par
+\par
+\b 1. Company and product overview\b0\par
+Quark Digital Agency develops and manages digital marketing assets, landing pages, and software products for internal company promotion and client marketing operations. One current product is Promotions Studio, a Shopify app promoted through dedicated landing pages and Google Ads campaigns.\par
+\par
+\b 2. Purpose of the API tool\b0\par
+The Google Ads API tool is being built for internal operational use. Its purpose is to automate the creation, update, and monitoring of Google Ads campaigns for Quark Digital Agency products, landing pages, and selected client campaigns managed directly by the agency team.\par
+\par
+\b 3. Intended users\b0\par
+Only internal users will access the tool. These users include Quark Digital Agency employees and trusted contractors working under the agency's supervision. The tool is not offered as a public SaaS product and is not exposed for direct use by external advertisers or the general public.\par
+\par
+\b 4. Main functionality\b0\par
+The tool will initially support Search campaign management. Core functions include:\par
+- creating campaigns in paused state for review\par
+- creating and editing campaign budgets\par
+- creating ad groups\par
+- creating keyword criteria and negative keywords\par
+- creating and updating responsive search ads\par
+- applying language and geographic targeting\par
+- reading reporting data for campaign performance analysis\par
+\par
+\b 5. Initial use case\b0\par
+The first production use case is the promotion of the Shopify app Promotions Studio through Google Search campaigns targeting merchants searching for Shopify discount, product badge, social proof, and feedback app solutions. Traffic is sent to the landing page hosted at promotions-studio-landing.quarkteam00.workers.dev and then to the Shopify App Store listing.\par
+\par
+\b 6. Workflow\b0\par
+The workflow is as follows:\par
+1. Internal marketing staff define campaign goals, countries, languages, budgets, keyword groups, and ad copy.\par
+2. A local configuration file is prepared with campaign settings.\par
+3. The internal tool authenticates with Google Ads API using the agency's developer token and approved account access.\par
+4. The tool creates or updates campaigns, ad groups, ads, and targeting.\par
+5. Campaigns are created in paused state for manual review before activation.\par
+6. Performance data is later read back for optimization and reporting.\par
+\par
+\b 7. System design\b0\par
+The current implementation is a lightweight internal Node.js automation script. It reads a local JSON campaign configuration, authenticates to Google services, and sends Google Ads API mutate and search requests over HTTPS. No public user interface is required for the initial version.\par
+\par
+\b 8. Data handled\b0\par
+The tool handles campaign metadata such as campaign names, budgets, keywords, ad copy, landing page URLs, language targets, and geographic targets. It may also read reporting metrics such as impressions, clicks, cost, and conversions. The tool does not store consumer payment data and does not expose advertising account access to external users.\par
+\par
+\b 9. Access and security\b0\par
+Access to the tool is restricted to internal team members. Credentials such as the developer token and service account credentials are stored locally or in protected internal environments and are not committed to public repositories. Campaign creation is limited to linked Google Ads accounts managed by the agency. The tool is designed to minimize risk by creating campaigns in paused status for review before launch.\par
+\par
+\b 10. Third-party usage\b0\par
+The token will not be used with a third-party software product developed by another vendor. The tool is an internal Quark Digital Agency automation utility.\par
+\par
+\b 11. Conversion tracking and remarketing\b0\par
+The initial version is focused on Search campaign creation and management. It does not require App Conversion Tracking and does not depend on Remarketing API functionality for the first release. If future remarketing or advanced conversion import features are added, they will remain part of the same internal operational workflow.\par
+\par
+\b 12. Compliance statement\b0\par
+This tool is intended to support compliant internal campaign management for legitimate advertising activity. The tool will be used only on accounts that the agency owns or directly manages with authorization.\par
+\par
+\b 13. Current implementation status\b0\par
+The initial campaign automation bootstrap has already been prepared as an internal script for Search campaign setup, including campaign budgets, targeting, keywords, and responsive search ads. The next step is enabling production API access so the tool can be used on live advertiser accounts.\par
+}

@@ -55,7 +55,45 @@ The landing already supports:
 - basic Open Graph / Twitter cards
 - Cloudflare Pages `_headers` and `_redirects`
 
+## Google Ads API bootstrap
+
+If you want to create the first Search campaigns via API, the repo now includes:
+
+- `google-ads-campaign-config.example.json`
+- `scripts/create-google-ads-search-campaigns.mjs`
+
+Recommended flow:
+
+1. Copy `google-ads-campaign-config.example.json` to `google-ads-campaign-config.json`
+2. Add your Google Ads values:
+   - `developerToken`
+   - `customerId`
+   - `loginCustomerId` if you manage the account from an MCC
+   - `serviceAccountKeyPath`
+3. Put the Google service account JSON key in a local path ignored by git
+4. Grant the service account access to the Google Ads account
+5. Run a non-destructive check:
+   - `node scripts/create-google-ads-search-campaigns.mjs --config google-ads-campaign-config.json --dry-run`
+6. Execute the real creation:
+   - `node scripts/create-google-ads-search-campaigns.mjs --config google-ads-campaign-config.json --execute`
+
+What the script creates:
+
+- paused Search campaigns
+- one budget per campaign
+- location and language targeting
+- campaign-level negative keywords
+- search ad groups
+- keyword criteria
+- paused responsive search ads
+
+Current example campaigns included in the template:
+
+- `PS | Search | NonBrand | EN | Subs`
+- `PS | Search | NonBrand | IT | Subs`
+
 ## Notes
 
 - Real screenshots used in the landing are stored in `assets/real/`
 - Pricing and feature copy were aligned with the live Shopify listing and verified app implementation
+- `scripts/render-social-assets.py` regenerates `assets/social-card.png` and `assets/favicon.png`

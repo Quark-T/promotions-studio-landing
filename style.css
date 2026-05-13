@@ -188,10 +188,22 @@ span {
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
     color: white;
     font-family: var(--font-display);
     font-size: 1.45rem;
     font-weight: 700;
+}
+
+.logo-mark,
+.footer-logo-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    box-shadow: 0 12px 26px rgba(255, 138, 0, 0.22);
+    flex: 0 0 auto;
 }
 
 .logo-accent {
@@ -303,6 +315,85 @@ span {
     color: #f5eee3;
     font-size: 0.9rem;
     font-weight: 600;
+}
+
+.logo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 820px;
+    margin: 2rem auto 0;
+}
+
+.logo-tile {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: var(--shadow-lg);
+    text-align: left;
+}
+
+.logo-tile-dark {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(10, 11, 14, 0.92));
+}
+
+.logo-tile-soft {
+    background: linear-gradient(160deg, rgba(255, 168, 73, 0.26), rgba(22, 26, 34, 0.82));
+}
+
+.logo-tile-light {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(247, 240, 228, 0.9));
+    border-color: rgba(21, 24, 33, 0.1);
+    color: var(--text-dark);
+}
+
+.logo-showcase {
+    width: 84px;
+    height: 84px;
+}
+
+.logo-showcase-small {
+    width: 64px;
+    height: 64px;
+}
+
+.logo-wordmark-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.shopify-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: #95bf47;
+    color: #0d2117;
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.logo-tile figcaption {
+    color: rgba(255, 250, 243, 0.82);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.logo-tile-light figcaption {
+    color: rgba(21, 24, 33, 0.72);
 }
 
 .hero-visual {
@@ -622,6 +713,15 @@ footer {
     margin-top: 0.5rem;
 }
 
+.footer-brand-heading {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
 .footer-brand a {
     color: #ffd7a4;
     text-decoration: none;
@@ -643,6 +743,10 @@ footer {
 }
 
 @media (max-width: 900px) {
+    .logo-gallery {
+        grid-template-columns: 1fr;
+    }
+
     .hero-shot-grid {
         grid-template-columns: 1fr;
     }
@@ -693,6 +797,12 @@ footer {
 
     .nav-links {
         display: none;
+    }
+
+    .logo-tile,
+    .logo-wordmark-wrap {
+        align-items: center;
+        text-align: center;
     }
 }
 

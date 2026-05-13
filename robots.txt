@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://promotions-studio-landing.quarkteam00.workers.dev/sitemap.xml
+Sitemap: https://promotions-studio.art/sitemap.xml

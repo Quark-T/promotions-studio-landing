@@ -1,0 +1,189 @@
+{
+  "apiVersion": "v24",
+  "developerToken": "INSERT_DEVELOPER_TOKEN",
+  "customerId": "INSERT_CUSTOMER_ID",
+  "loginCustomerId": "INSERT_MANAGER_CUSTOMER_ID",
+  "serviceAccountKeyPath": "./google-ads-service-account.json",
+  "dryRun": true,
+  "campaigns": [
+    {
+      "name": "PS | Search | NonBrand | EN | Subs",
+      "landingPageUrl": "https://promotions-studio-landing.quarkteam00.workers.dev/index-en.html",
+      "dailyBudget": 35,
+      "bidding": {
+        "type": "MAXIMIZE_CONVERSIONS"
+      },
+      "countries": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "Australia"
+      ],
+      "languages": [
+        "en"
+      ],
+      "negativeKeywords": [
+        "free",
+        "email",
+        "inbox",
+        "forms",
+        "form",
+        "flow",
+        "bundles",
+        "bundle",
+        "collabs",
+        "jobs",
+        "careers",
+        "tutorial",
+        "course",
+        "github",
+        "template",
+        "theme",
+        "marketplace connect",
+        "magic",
+        "geolocation",
+        "youtube",
+        "google & youtube",
+        "facebook & instagram by meta",
+        "crack",
+        "nulled"
+      ],
+      "defaultAd": {
+        "headlines": [
+          "Schedule Shopify Discounts",
+          "Custom Product Badges",
+          "Shopify Discount Campaigns",
+          "Show Offers More Clearly",
+          "Compare-At Price + Badges",
+          "Theme Editor Feedback Block",
+          "Import Promotions via CSV",
+          "Shopify App Store Install"
+        ],
+        "descriptions": [
+          "Schedule discount campaigns across products, collections and tags from one Shopify app.",
+          "Show custom badges and compare-at pricing so offers stand out on product pages.",
+          "Add product feedback and social proof modules without custom theme coding.",
+          "Manage campaigns, CSV imports and storefront messaging from one admin workflow."
+        ]
+      },
+      "adGroups": [
+        {
+          "name": "Scheduled Discounts",
+          "keywords": [
+            { "text": "shopify scheduled discounts", "matchType": "EXACT" },
+            { "text": "shopify scheduled discounts", "matchType": "PHRASE" },
+            { "text": "shopify discount app", "matchType": "EXACT" },
+            { "text": "shopify promotional discounts", "matchType": "PHRASE" },
+            { "text": "shopify compare at price app", "matchType": "EXACT" }
+          ]
+        },
+        {
+          "name": "Product Badges",
+          "keywords": [
+            { "text": "shopify product badges", "matchType": "EXACT" },
+            { "text": "shopify discount badges", "matchType": "PHRASE" },
+            { "text": "shopify product badge app", "matchType": "PHRASE" },
+            { "text": "shopify sale badges", "matchType": "PHRASE" },
+            { "text": "shopify sale labels", "matchType": "PHRASE" }
+          ]
+        },
+        {
+          "name": "Product Feedback",
+          "keywords": [
+            { "text": "shopify product feedback app", "matchType": "EXACT" },
+            { "text": "shopify product feedback widget", "matchType": "PHRASE" },
+            { "text": "shopify social proof app", "matchType": "PHRASE" },
+            { "text": "shopify customer feedback widget", "matchType": "PHRASE" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PS | Search | NonBrand | IT | Subs",
+      "landingPageUrl": "https://promotions-studio-landing.quarkteam00.workers.dev/",
+      "dailyBudget": 15,
+      "bidding": {
+        "type": "MAXIMIZE_CONVERSIONS"
+      },
+      "countries": [
+        "Italy"
+      ],
+      "languages": [
+        "it"
+      ],
+      "negativeKeywords": [
+        "gratis",
+        "email",
+        "inbox",
+        "forms",
+        "form",
+        "flow",
+        "bundles",
+        "bundle",
+        "collabs",
+        "lavoro",
+        "tutorial",
+        "corso",
+        "github",
+        "template",
+        "tema",
+        "marketplace connect",
+        "magic",
+        "geolocation",
+        "youtube",
+        "google & youtube",
+        "facebook & instagram by meta",
+        "crack",
+        "nulled"
+      ],
+      "defaultAd": {
+        "headlines": [
+          "Sconti Shopify Programmati",
+          "Badge Prodotto Personalizzati",
+          "Campagne Sconto per Shopify",
+          "Metti in Evidenza le Offerte",
+          "Compare At Price + Badge",
+          "Blocco Feedback nel Tema",
+          "Import Campagne via CSV",
+          "Installa da Shopify App Store"
+        ],
+        "descriptions": [
+          "Programma sconti su prodotti, collezioni e tag da un'unica app Shopify.",
+          "Mostra badge personalizzati e compare at price per rendere le offerte piu visibili.",
+          "Aggiungi feedback prodotto e social proof senza sviluppo custom del tema.",
+          "Gestisci campagne, CSV e messaggi promo storefront da un solo pannello."
+        ]
+      },
+      "adGroups": [
+        {
+          "name": "Sconti Programmati",
+          "keywords": [
+            { "text": "app sconti shopify", "matchType": "EXACT" },
+            { "text": "shopify sconti programmati", "matchType": "PHRASE" },
+            { "text": "sconti programmati shopify", "matchType": "EXACT" },
+            { "text": "app prezzi scontati shopify", "matchType": "EXACT" }
+          ]
+        },
+        {
+          "name": "Badge Prodotto",
+          "keywords": [
+            { "text": "badge prodotto shopify", "matchType": "EXACT" },
+            { "text": "app badge prodotto shopify", "matchType": "PHRASE" },
+            { "text": "badge promozioni shopify", "matchType": "PHRASE" },
+            { "text": "etichette prodotto shopify", "matchType": "PHRASE" },
+            { "text": "badge sconto shopify", "matchType": "PHRASE" },
+            { "text": "etichette sconto shopify", "matchType": "PHRASE" }
+          ]
+        },
+        {
+          "name": "Feedback Prodotto",
+          "keywords": [
+            { "text": "feedback prodotto shopify", "matchType": "EXACT" },
+            { "text": "widget feedback prodotto shopify", "matchType": "PHRASE" },
+            { "text": "social proof shopify", "matchType": "PHRASE" }
+          ]
+        }
+      ]
+    }
+  ]
+}
